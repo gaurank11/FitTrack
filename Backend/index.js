@@ -41,7 +41,7 @@ const secretKey = crypto.randomBytes(32).toString("hex");
 const app = express();
 app.use(
   cors({
-    origin: "http://localhost:5174", // Replace with your React app's origin
+    origin: "https://fittrack-two.vercel.app", // Replace with your React app's origin
   })
 );
 
@@ -93,7 +93,7 @@ app.get("/auth/google/callback", async (req, res) => {
     req.session.userProfile = profile;
     userProfileData = profile;
 
-    res.redirect("http://localhost:5174/dashboard");
+    res.redirect("https://fittrack-two.vercel.app/dashboard");
   } catch (error) {
     console.error("Error retrieving access token:", error);
     res.redirect("/error");
